@@ -1,0 +1,27 @@
+@import '../shared/styles_base/normalize.scss';
+@import '../shared/styles_base/variables.scss';
+
+.main {
+    height: 100vh;
+
+    position: static;
+
+    display: flex;
+    flex-direction: row;
+
+    &__sidebar {
+        width: 20vw;
+
+        padding-top: 100px;
+
+        border-right: 1px solid black;
+    }
+
+    &__main {
+        width: 80vw;
+
+        margin-top: 100px;
+
+        padding: 0px 50px;
+    }
+}

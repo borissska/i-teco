@@ -1,0 +1,236 @@
+[
+  {
+    "id": 1,
+    "orderNumber": "ORD123",
+    "productName": "Деталь A",
+    "quantity": 100,
+    "status": "В процессе",
+    "startDate": "2023-10-01",
+    "endDate": "2023-10-05"
+  },
+  {
+    "id": 2,
+    "orderNumber": "ORD124",
+    "productName": "Деталь B",
+    "quantity": 50,
+    "status": "Завершено",
+    "startDate": "2023-10-02",
+    "endDate": "2023-10-04"
+  },
+  {
+    "id": 3,
+    "orderNumber": "ORD125",
+    "productName": "Деталь C",
+    "quantity": 200,
+    "status": "В процессе",
+    "startDate": "2023-10-03",
+    "endDate": "2023-10-07"
+  },
+  {
+    "id": 4,
+    "orderNumber": "ORD126",
+    "productName": "Деталь D",
+    "quantity": 80,
+    "status": "Отклонено",
+    "startDate": "2023-10-04",
+    "endDate": "2023-10-06"
+  },
+  {
+    "id": 5,
+    "orderNumber": "ORD127",
+    "productName": "Деталь E",
+    "quantity": 120,
+    "status": "Завершено",
+    "startDate": "2023-10-05",
+    "endDate": "2023-10-08"
+  },
+  {
+    "id": 6,
+    "orderNumber": "ORD128",
+    "productName": "Деталь F",
+    "quantity": 90,
+    "status": "В процессе",
+    "startDate": "2023-10-06",
+    "endDate": "2023-10-09"
+  },
+  {
+    "id": 7,
+    "orderNumber": "ORD129",
+    "productName": "Деталь G",
+    "quantity": 150,
+    "status": "Завершено",
+    "startDate": "2023-10-07",
+    "endDate": "2023-10-10"
+  },
+  {
+    "id": 8,
+    "orderNumber": "ORD130",
+    "productName": "Деталь H",
+    "quantity": 75,
+    "status": "Отклонено",
+    "startDate": "2023-10-08",
+    "endDate": "2023-10-11"
+  },
+  {
+    "id": 9,
+    "orderNumber": "ORD131",
+    "productName": "Деталь I",
+    "quantity": 110,
+    "status": "В процессе",
+    "startDate": "2023-10-09",
+    "endDate": "2023-10-12"
+  },
+  {
+    "id": 10,
+    "orderNumber": "ORD132",
+    "productName": "Деталь J",
+    "quantity": 200,
+    "status": "Завершено",
+    "startDate": "2023-10-10",
+    "endDate": "2023-10-13"
+  },
+  {
+    "id": 11,
+    "orderNumber": "ORD133",
+    "productName": "Деталь K",
+    "quantity": 180,
+    "status": "В процессе",
+    "startDate": "2023-10-11",
+    "endDate": "2023-10-14"
+  },
+  {
+    "id": 12,
+    "orderNumber": "ORD134",
+    "productName": "Деталь L",
+    "quantity": 60,
+    "status": "Отклонено",
+    "startDate": "2023-10-12",
+    "endDate": "2023-10-15"
+  },
+  {
+    "id": 13,
+    "orderNumber": "ORD135",
+    "productName": "Деталь M",
+    "quantity": 130,
+    "status": "Завершено",
+    "startDate": "2023-10-13",
+    "endDate": "2023-10-16"
+  },
+  {
+    "id": 14,
+    "orderNumber": "ORD136",
+    "productName": "Деталь N",
+    "quantity": 95,
+    "status": "В процессе",
+    "startDate": "2023-10-14",
+    "endDate": "2023-10-17"
+  },
+  {
+    "id": 15,
+    "orderNumber": "ORD137",
+    "productName": "Деталь O",
+    "quantity": 85,
+    "status": "Отклонено",
+    "startDate": "2023-10-15",
+    "endDate": "2023-10-18"
+  },
+  {
+    "id": 16,
+    "orderNumber": "ORD138",
+    "productName": "Деталь P",
+    "quantity": 190,
+    "status": "Завершено",
+    "startDate": "2023-10-16",
+    "endDate": "2023-10-19"
+  },
+  {
+    "id": 17,
+    "orderNumber": "ORD139",
+    "productName": "Деталь Q",
+    "quantity": 125,
+    "status": "В процессе",
+    "startDate": "2023-10-17",
+    "endDate": "2023-10-20"
+  },
+  {
+    "id": 18,
+    "orderNumber": "ORD140",
+    "productName": "Деталь R",
+    "quantity": 70,
+    "status": "Отклонено",
+    "startDate": "2023-10-18",
+    "endDate": "2023-10-21"
+  },
+  {
+    "id": 19,
+    "orderNumber": "ORD141",
+    "productName": "Деталь S",
+    "quantity": 105,
+    "status": "Завершено",
+    "startDate": "2023-10-19",
+    "endDate": "2023-10-22"
+  },
+  {
+    "id": 20,
+    "orderNumber": "ORD142",
+    "productName": "Деталь T",
+    "quantity": 140,
+    "status": "В процессе",
+    "startDate": "2023-10-20",
+    "endDate": "2023-10-23"
+  },
+  {
+    "id": 21,
+    "orderNumber": "ORD143",
+    "productName": "Деталь U",
+    "quantity": 200,
+    "status": "Завершено",
+    "startDate": "2023-10-21",
+    "endDate": "2023-10-24"
+  },
+  {
+    "id": 22,
+    "orderNumber": "ORD144",
+    "productName": "Деталь V",
+    "quantity": 50,
+    "status": "Отклонено",
+    "startDate": "2023-10-22",
+    "endDate": "2023-10-25"
+  },
+  {
+    "id": 23,
+    "orderNumber": "ORD145",
+    "productName": "Деталь W",
+    "quantity": 90,
+    "status": "В процессе",
+    "startDate": "2023-10-23",
+    "endDate": "2023-10-26"
+  },
+  {
+    "id": 24,
+    "orderNumber": "ORD146",
+    "productName": "Деталь X",
+    "quantity": 175,
+    "status": "Завершено",
+    "startDate": "2023-10-24",
+    "endDate": "2023-10-27"
+  },
+  {
+    "id": 25,
+    "orderNumber": "ORD147",
+    "productName": "Деталь Y",
+    "quantity": 120,
+    "status": "В процессе",
+    "startDate": "2023-10-25",
+    "endDate": "2023-10-28"
+  },
+  {
+    "id": 26,
+    "orderNumber": "ORD148",
+    "productName": "Деталь Z",
+    "quantity": 180,
+    "status": "Завершено",
+    "startDate": "2023-10-26",
+    "endDate": "2023-10-29"
+  }
+]

@@ -1,0 +1,20 @@
+@import "../../../shared/styles_base/normalize.scss";
+@import "../../../shared/styles_base/variables.scss";
+
+.menu {
+  position: static;
+
+  top: 0;
+  left: 0;
+
+  padding: 0px 50px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin: 20px 0px;
+  }
+}
