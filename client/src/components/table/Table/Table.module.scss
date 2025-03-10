@@ -12,12 +12,32 @@
   margin: 20px auto;
   overflow-x: auto;
   border-collapse: collapse;
+  table-layout: fixed;
 
   .noData {
     text-align: center;
     padding: 20px;
     font-size: 16px;
     color: #888;
+  }
+
+  tr {
+    opacity: 0;
+    animation: fadeInRows 0.5s forwards;
+  }
+
+  tr:nth-child(odd) {
+    animation-delay: 0.1s;
+  }
+
+  tr:nth-child(even) {
+    animation-delay: 0.2s;
+  }
+
+  @keyframes fadeInRows {
+    to {
+      opacity: 1;
+    }
   }
 }
 

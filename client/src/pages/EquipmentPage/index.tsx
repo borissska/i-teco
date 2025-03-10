@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ElementTable from "../../components/table/Table";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { EEquipmentStatus, EStatus } from "../../shared/@types/status_type";
@@ -13,7 +13,7 @@ const EquipmentPage = () => {
   const [selectedElement, setSelectedElement] = useState<TTableItem | null>(null);
   const dispatch = useAppDispatch();
 
-  const handleStatusChange = (newStatus: EEquipmentStatus) => {
+  const handleStatusChange = useCallback((newStatus: EEquipmentStatus) => {
     if (!selectedElement || !isEquipmentType(selectedElement)) return;
 
     dispatch(updateEquipmentStatus({ id: selectedElement.id, status: newStatus }));
@@ -23,11 +23,11 @@ const EquipmentPage = () => {
       }
       return prev;
     });
-  };
+  }, [selectedElement])
 
-  const handleRowClick = (element: TTableItem) => {
-    setSelectedElement(element);
-  };
+  const handleRowClick = useCallback((element: TTableItem) => {
+      setSelectedElement(element);
+    }, [])
 
   useEffect(() => {
     dispatch(getEquipment());
@@ -41,18 +41,27 @@ const EquipmentPage = () => {
       )}
       {selectedElement && isEquipmentType(selectedElement) && (
         <Modal close={() => setSelectedElement(null)}>
-        <h2>{selectedElement.name || "Оборудование"}</h2>
-        <p>Текущий статус: {selectedElement.status}</p>
-        <select
-          onChange={(e) => handleStatusChange(e.target.value as EEquipmentStatus)}
-          value={selectedElement.status}
-        >
-          {Object.values(EEquipmentStatus).map((status) => (
-            <option key={status} value={status}>
-              {status}
-            </option>
-          ))}
-        </select>
+        <div className={styles.modalContent}>
+          <h2>
+            {selectedElement.name || "Детали"}
+          </h2>
+          <p className={styles.modalText}>
+            Текущий статус: {selectedElement.status}
+          </p>
+          <div className={styles.selectWrapper}>
+            <select
+              className={styles.select}
+              onChange={(e) => handleStatusChange(e.target.value as EEquipmentStatus)}
+              value={selectedElement.status}
+            >
+              {Object.values(EEquipmentStatus).map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
       </Modal>
       )}
     </>

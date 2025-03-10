@@ -7,7 +7,7 @@ const OrderPage = React.lazy(() => import(/* webpackChunkName: "Orders" */ "../p
 const EquipmentPage = React.lazy(
   () => import(/* webpackChunkName: "Equipment" */ "../pages/EquipmentPage")
 );
-const Tasks = React.lazy(() => import(/* webpackChunkName: "Tasks" */ "../pages/Tasks"));
+const TasksPage = React.lazy(() => import(/* webpackChunkName: "Tasks" */ "../pages/TasksPage"));
 
 const App: React.FC = () => {
   return (
@@ -34,7 +34,7 @@ const App: React.FC = () => {
             path='tasks'
             element={
               <React.Suspense fallback={<>Идет загрузка!</>}>
-                <Tasks />
+                <TasksPage />
               </React.Suspense>
             }
           />

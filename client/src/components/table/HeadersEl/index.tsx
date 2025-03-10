@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import { orderHeaders, equipmentHeaders } from './HeadersEl.constants';
 import { IHeaderEl } from './HeadersEl.props';
 import styles from "./HeadersEl.module.scss";
 
-const HeadersEl: React.FC<IHeaderEl> = ({ element, onSort }) => {
+const HeadersEl: FC<IHeaderEl> = ({ element, onSort }) => {
   if (!element) {
     return null;
   }

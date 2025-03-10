@@ -1,9 +1,9 @@
-import React from "react";
+import { FC } from "react";
 import styles from "./Menu.module.scss";
 import MenuEl from "../MenuEl";
 import { menuList } from "./Menu.constants";
 
-const Menu: React.FC = () => {
+const Menu: FC = () => {
   return (
     <aside className={styles.menu}>
       <h1>Меню</h1>

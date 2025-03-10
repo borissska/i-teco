@@ -29,7 +29,7 @@ const OrderPage = () => {
     dispatch(getOrders());
   }, []);
 
-  const handleRowClick = useCallback((element: TTableItem | null) => {
+  const handleRowClick = useCallback((element: TTableItem) => {
     setSelectedElement(element);
   }, [])
 
@@ -40,7 +40,7 @@ const OrderPage = () => {
         <ElementTable data={orders} onRowClick={handleRowClick} />
       )}
       {selectedElement && isOrderType(selectedElement) && (
-        <Modal close={() => handleRowClick(null)}>
+        <Modal close={() => setSelectedElement(null)}>
           <div className={styles.modalContent}>
             <h2>
               {selectedElement.productName || "Детали"}

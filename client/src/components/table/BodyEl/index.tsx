@@ -1,10 +1,10 @@
-import React from "react";
+import { FC } from "react";
 import styles from "./BodyEl.module.scss";
 import classNames from "classnames";
 import { statusClassMap } from "./BodyEl.constants";
 import { IBodyEl } from "./BodyEl.props";
 
-const BodyEl: React.FC<IBodyEl> = ({ element, onRowClick }) => {
+const BodyEl: FC<IBodyEl> = ({ element, onRowClick }) => {
   return (
     <tr className={styles.trow} onClick={() => onRowClick(element)}>
       {Object.entries(element).map(([key, value]) => {

@@ -27,10 +27,10 @@ const Table: FC<IElementsTable> = ({ data, onRowClick }) => {
   const handleSort = useCallback(
     (field: keyof Equipment | keyof Order) => {
       if (sortField === field) {
-        setSortElement(sortElement === "asc" ? "desc" : "asc");
+        setSortElement((prevSortElement) => (prevSortElement === "asc" ? "desc" : "asc"));
       } else {
         setSortField(field);
-        setSortElement("asc");
+        setSortElement("desc");
       }
     },
     [sortField]

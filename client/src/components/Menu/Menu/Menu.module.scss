@@ -2,6 +2,9 @@
 @import "../../../shared/styles_base/variables.scss";
 
 .menu {
+  display: flex;
+  flex-direction: column;
+
   position: static;
 
   top: 0;
@@ -13,7 +16,7 @@
     display: flex;
     flex-direction: column;
 
-    gap: 10px;
+    gap: 12px;
 
     margin: 20px 0px;
   }

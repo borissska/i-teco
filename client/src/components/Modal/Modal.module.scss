@@ -1,30 +1,68 @@
-@import '../../shared/styles_base/variables.scss';
+@import "../../shared/styles_base/variables.scss";
 
 .modal {
-    z-index: 20;
-    position: fixed;
+  z-index: 20;
+  position: fixed;
 
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
 
-    top: 0;
-    left: 0;
+  top: 0;
+  left: 0;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background-color: rgba(black, 0.5);
+  background-color: rgba(black, 0.5);
 
-    &_info {
-        width: 15vw;
-        height: auto;
+  &.show {
+    animation: fadeIn 0.3s forwards;
+  }
 
-        padding: 30px;
+  &.hide {
+    animation: fadeOut 0.3s forwards;
+  }
 
-        border: 2px solid;
-        border-radius: 10%;
-        background-color: rgba(white, 0.7);
-        box-shadow: 0 0 30px black;
-    }
+  &_info {
+    width: 16vw;
+    height: auto;
+
+    padding: 30px;
+
+    border: 2px solid;
+    border-radius: 10%;
+    background-color: white;
+    box-shadow: 0 0 30px black;
+    animation: slideIn 0.3s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

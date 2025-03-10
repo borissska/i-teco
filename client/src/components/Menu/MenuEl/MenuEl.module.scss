@@ -2,7 +2,15 @@
 @import '../../../shared/styles_base/variables.scss';
 
 .menu_el {
+    
+
     cursor: pointer;
     font-size: x-large;
     font-weight: normal;
+
+    transition: all 0.3s ease;
+
+    &:hover {
+        font-weight: bold;
+    }
 }

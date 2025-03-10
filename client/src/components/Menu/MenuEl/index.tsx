@@ -1,9 +1,9 @@
-import React from "react";
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./MenuEl.module.scss";
 import { IMenuEl } from "./MenuEl.props";
 
-const MenuEl: React.FC<IMenuEl> = ({ name }) => {
+const MenuEl: FC<IMenuEl> = ({ name }) => {
   const navigate = useNavigate();
 
   return (
