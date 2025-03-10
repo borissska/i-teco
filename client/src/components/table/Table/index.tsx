@@ -1,4 +1,4 @@
-import { useState, FC, useEffect } from "react";
+import { useState, FC, useEffect, useCallback } from "react";
 import TableBodyEl from "../BodyEl";
 import styles from "./Table.module.scss";
 import { Order } from "../../../shared/@types/order_type";
@@ -23,14 +23,14 @@ const Table: FC<IElementsTable> = ({ data, onRowClick }) => {
     currentPage * elementsPerPage
   );
 
-  const handleSort = (field: keyof Equipment | keyof Order) => {
+  const handleSort = useCallback((field: keyof Equipment | keyof Order) => {
     if (sortField === field) {
       setSortElement(sortElement === "asc" ? "desc" : "asc");
     } else {
       setSortField(field);
       setSortElement("asc");
     }
-  };
+  }, [sortField])
 
   useEffect(() => {
     let updatedElements: TTableItem[] = [...data];

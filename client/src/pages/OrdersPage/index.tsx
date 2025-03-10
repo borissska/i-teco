@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import ElementTable from "../../components/table/Table";
 import { EOrderStatus, EStatus } from "../../shared/@types/status_type";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
@@ -13,7 +13,7 @@ const OrderPage = () => {
   const [selectedElement, setSelectedElement] = useState<TTableItem | null>(null);
   const dispatch = useAppDispatch();
 
-  const handleStatusChange = (newStatus: EOrderStatus) => {
+  const handleStatusChange = useCallback((newStatus: EOrderStatus) => {
     if (!selectedElement || !isOrderType(selectedElement)) return;
 
     dispatch(updateOrderStatus({ id: selectedElement.id, status: newStatus }));
@@ -23,15 +23,15 @@ const OrderPage = () => {
       }
       return prev;
     });
-  };
+  }, [selectedElement])
 
   useEffect(() => {
     dispatch(getOrders());
   }, []);
 
-  const handleRowClick = (element: TTableItem) => {
+  const handleRowClick = useCallback((element: TTableItem | null) => {
     setSelectedElement(element);
-  };
+  }, [])
 
   return (
     <>
@@ -40,7 +40,7 @@ const OrderPage = () => {
         <ElementTable data={orders} onRowClick={handleRowClick} />
       )}
       {selectedElement && isOrderType(selectedElement) && (
-        <Modal close={() => setSelectedElement(null)}>
+        <Modal close={() => handleRowClick(null)}>
           <div className={styles.modalContent}>
             <h2>
               {selectedElement.productName || "Детали"}
