@@ -20,5 +20,5 @@ export type Order = z.infer<typeof orderSchema>;
 
 export interface IOrder {
     orders: Order[];
-    status: EStatus;
+    order_status: EStatus;
 }

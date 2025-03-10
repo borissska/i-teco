@@ -8,12 +8,12 @@ const messages = {
 export const equipmentSchema = z.object({
   id: z.number().int().positive(),
   name: z.string(),
-  status: z.enum(["Работает", "Остановлено"], { message: messages.enum }),
+  status: z.enum(["Работает", "Остановлено", "Техническое обслуживание"], { message: messages.enum }),
 });
 
 export type Equipment = z.infer<typeof equipmentSchema>;
 
 export interface IEquipment {
     equipment: Equipment[];
-    status: EStatus;
+    equipment_status: EStatus;
 }

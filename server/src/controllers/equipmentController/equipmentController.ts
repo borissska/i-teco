@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { Equipment, equipmentSchema } from "../../entities/equipment/schema";
-import { readFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import { ZodError } from "zod";
 import path from "path";
 
@@ -29,21 +29,25 @@ export const getEquipment = async (req: Request, res: Response): Promise<void> =
   }
 };
 
-export const updateEquipment = async (req: Request, res: Response): Promise<void> => {
+
+export const updateEquipmentStatus = async (req: Request, res: Response): Promise<void> => {
   try {
     const equipmentId = Number(req.params.id);
+    const { status } = req.body;
 
     const fileData = await readFile(filePath, "utf-8");
     const equipments: Equipment[] = JSON.parse(fileData);
-    
-    const equipment: Equipment | undefined = equipments.find((equipment: Equipment) => equipment.id === equipmentId);
 
-    if (!equipment) {
-      res.status(404).json({ success: false, message: "Оборудование не найдено" });
+    const equipmentIndex = equipments.findIndex((equipment) => equipment.id === equipmentId);
+    if (equipmentIndex === -1) {
+      res.status(404).json({ success: false, message: "Заказ не найден" });
       return;
-    } 
+    }
 
-    res.status(200).json({ success: true, equipment });
+    equipments[equipmentIndex].status = status;
+    await writeFile(filePath, JSON.stringify(equipments, null, 2));
+
+    res.status(200).json({ success: true, equipment: equipments[equipmentIndex] });
   } catch (err) {
     if (err instanceof ZodError) {
       res.status(400).json({

@@ -1,0 +1,10 @@
+.header {
+    background: white;
+    color: black;
+
+    &__el {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: bold;
+    }
+  }

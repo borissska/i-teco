@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Menu from "../components/Menu/Menu";
+import Menu from "../components/menu/Menu";
 import styles from "./MainLayout.module.scss";
 
 const MainLayout: React.FC = () => {

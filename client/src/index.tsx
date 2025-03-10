@@ -10,6 +10,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
+      <div id="modal" />
     </BrowserRouter>
   </Provider>
 );

@@ -1,0 +1,61 @@
+@import "../../../shared/styles_base/normalize.scss";
+@import "../../../shared/styles_base/variables.scss";
+
+.tableWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.table_container {
+  width: 100%;
+  margin: 20px auto;
+  overflow-x: auto;
+  border-collapse: collapse;
+
+  .noData {
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #888;
+  }
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+
+  &__label {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__select {
+    white-space: nowrap;
+    appearance: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+
+  button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+
+    &.active {
+      background: #007bff;
+      color: white;
+    }
+  }
+}

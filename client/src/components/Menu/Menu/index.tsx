@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./Menu.module.scss";
 import MenuEl from "../MenuEl";
-
-const menuList = ["equipment", "orders", "tasks"];
+import { menuList } from "./Menu.constants";
 
 const Menu: React.FC = () => {
   return (

@@ -1,0 +1,1 @@
+export const menuList = ["equipment", "orders", "tasks"];

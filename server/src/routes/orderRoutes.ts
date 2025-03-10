@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { updateOrder, getOrders } from "../controllers/orderController/orderController";
+import { getOrders, updateOrderStatus } from "../controllers/orderController/orderController";
 
 const orderRouter = Router();
 
 orderRouter.get("/", getOrders);
-orderRouter.put("/:id", updateOrder)
+orderRouter.patch("/:id", updateOrderStatus)
 
 export default orderRouter;

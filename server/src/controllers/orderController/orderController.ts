@@ -29,21 +29,24 @@ export const getOrders = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-export const updateOrder = async (req: Request, res: Response): Promise<void> => {
+export const updateOrderStatus = async (req: Request, res: Response): Promise<void> => {
   try {
     const orderId = Number(req.params.id);
+    const { status } = req.body;
 
     const fileData = await readFile(filePath, "utf-8");
     const orders: Order[] = JSON.parse(fileData);
 
-    const order: Order | undefined = orders.find((order: Order) => order.id === orderId);
-
-    if (!order) {
+    const orderIndex = orders.findIndex((order) => order.id === orderId);
+    if (orderIndex === -1) {
       res.status(404).json({ success: false, message: "Заказ не найден" });
       return;
     }
 
-    res.status(200).json({ success: true, order });
+    orders[orderIndex].status = status;
+    await writeFile(filePath, JSON.stringify(orders, null, 2));
+
+    res.status(200).json({ success: true, order: orders[orderIndex] });
   } catch (err) {
     if (err instanceof ZodError) {
       res.status(400).json({

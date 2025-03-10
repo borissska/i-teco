@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IOrder, Order, orderSchema } from "../../shared/@types/order_type";
-import { EStatus } from "../../shared/@types/status_type";
+import { EOrderStatus, EStatus } from "../../shared/@types/status_type";
 
 const API_URL = "http://localhost:3001";
 
@@ -28,9 +28,21 @@ export const getOrders = createAsyncThunk<Order[]>("/orders", async (_, { reject
   }
 });
 
+export const updateOrderStatus = createAsyncThunk(
+  "orders/updateStatus",
+  async ({ id, status }: { id: number; status: EOrderStatus }, { rejectWithValue }) => {
+    try {
+      await axios.patch(`${API_URL}/orders/${id}`, { status });
+      return { id, status };
+    } catch (error) {
+      return rejectWithValue("Ошибка обновления статуса");
+    }
+  }
+);
+
 const initialState: IOrder = {
   orders: [],
-  status: EStatus.EMPTY,
+  order_status: EStatus.EMPTY,
 };
 
 export const orderSlice = createSlice({
@@ -40,14 +52,20 @@ export const orderSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getOrders.pending, (state) => {
-        state.status = EStatus.LOADING;
+        state.order_status = EStatus.LOADING;
       })
       .addCase(getOrders.fulfilled, (state, action: PayloadAction<Order[]>) => {
-        state.status = EStatus.SUCCESS;
+        state.order_status = EStatus.SUCCESS;
         state.orders = action.payload;
       })
       .addCase(getOrders.rejected, (state) => {
-        state.status = EStatus.ERROR;
+        state.order_status = EStatus.ERROR;
+      })
+      .addCase(updateOrderStatus.fulfilled, (state, action: PayloadAction<{ id: number; status: EOrderStatus }>) => {
+        const order = state.orders.find((order) => order.id === action.payload.id);
+        if (order) {
+          order.status = action.payload.status;
+        }
       });
   },
 });

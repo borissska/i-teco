@@ -1,0 +1,46 @@
+@import "../../shared/styles_base/normalize.scss";
+@import "../../shared/styles_base/variables.scss";
+
+.name {
+  padding-bottom: 20px;
+}
+
+.modalContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  appearance: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.selectOption {
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.modalText {
+  font-size: 20px;
+  color: #666;
+}
