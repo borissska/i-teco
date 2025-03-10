@@ -9,6 +9,7 @@ import { TTableItem } from "../../../shared/@types/mixed_type";
 import { elementsPerPage } from "./Table.constants";
 import { isOrderType } from "../../../pages/OrdersPage/OrderPage.utils";
 import { isEquipmentType } from "../../../pages/EquipmentPage/EquipmentPage.utils";
+import { EOrderStatus, EEquipmentStatus } from "../../../shared/@types/status_type";
 
 const Table: FC<IElementsTable> = ({ data, onRowClick }) => {
   const [filteredElements, setFilteredElements] = useState<TTableItem[]>([]);
@@ -23,14 +24,17 @@ const Table: FC<IElementsTable> = ({ data, onRowClick }) => {
     currentPage * elementsPerPage
   );
 
-  const handleSort = useCallback((field: keyof Equipment | keyof Order) => {
-    if (sortField === field) {
-      setSortElement(sortElement === "asc" ? "desc" : "asc");
-    } else {
-      setSortField(field);
-      setSortElement("asc");
-    }
-  }, [sortField])
+  const handleSort = useCallback(
+    (field: keyof Equipment | keyof Order) => {
+      if (sortField === field) {
+        setSortElement(sortElement === "asc" ? "desc" : "asc");
+      } else {
+        setSortField(field);
+        setSortElement("asc");
+      }
+    },
+    [sortField]
+  );
 
   useEffect(() => {
     let updatedElements: TTableItem[] = [...data];
@@ -58,20 +62,29 @@ const Table: FC<IElementsTable> = ({ data, onRowClick }) => {
     <div className={styles.tableWrapper}>
       <div className={styles.filter}>
         <label className={styles.filter__label}>Фильтр:</label>
-        <select className={styles.filter__select} value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
-          <option value="">Все</option>
+        <select
+          className={styles.filter__select}
+          value={statusFilter}
+          onChange={(e) => setStatusFilter(e.target.value)}
+        >
+          <option value=''>Все</option>
           {isOrderType(data[0]) && (
             <>
-              <option value="В процессе">В процессе</option>
-              <option value="Завершено">Завершено</option>
-              <option value="Отклонено">Отклонено</option>
+              {Object.values(EOrderStatus).map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
             </>
           )}
+
           {isEquipmentType(data[0]) && (
             <>
-              <option value="Работает">Работает</option>
-              <option value="Остановлено">Остановлено</option>
-              <option value="Техническое обслуживание">Техническое обслуживание</option>
+              {Object.values(EEquipmentStatus).map((status) => (
+                <option key={status} value={status}>
+                  {status}
+                </option>
+              ))}
             </>
           )}
         </select>
